@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "make": "AUDI",
+        "model": "A6",
+        "inStock": true
+    },
+    {
+        "id": 2,
+        "make": "AUDI",
+        "model": "Q7",
+        "inStock": false
+    },
+    {
+        "id": 3,
+        "make": "AUDI",
+        "model": "A4",
+        "inStock": true
+    },
+    {
+        "id": 4,
+        "make": "AUDI",
+        "model": "TT",
+        "inStock": true
+    },
+    {
+        "id": 5,
+        "make": "BMW",
+        "model": "X1",
+        "inStock": true
+    },
+    {
+        "id": 6,
+        "make": "BMW",
+        "model": "X3",
+        "inStock": true
+    },
+    {
+        "id": 7,
+        "make": "BMW",
+        "model": "X5",
+        "inStock": true
+    },
+    {
+        "id": 8,
+        "make": "BMW",
+        "model": "3",
+        "inStock": false
+    },
+    {
+        "id": 9,
+        "make": "BMW",
+        "model": "5",
+        "inStock": false
+    },
+    {
+        "id": 10,
+        "make": "FIAT",
+        "model": "Punto",
+        "inStock": false
+    },
+    {
+        "id": 11,
+        "make": "FIAT",
+        "model": "Tipo",
+        "inStock": true
+    },
+    {
+        "id": 12,
+        "make": "FIAT",
+        "model": "Multipla",
+        "inStock": false
+    },
+    {
+        "id": 13,
+        "make": "NISSAN",
+        "model": "Primera",
+        "inStock": true
+    },
+    {
+        "id": 14,
+        "make": "NISSAN",
+        "model": "Micra",
+        "inStock": false
+    },
+    {
+        "id": 15,
+        "make": "NISSAN",
+        "model": "GTR",
+        "inStock": true
+    },
+    {
+        "id": 16,
+        "make": "SEAT",
+        "model": "Toledo",
+        "inStock": true
+    },
+    {
+        "id": 17,
+        "make": "SEAT",
+        "model": "Ibiza",
+        "inStock": false
+    },
+    {
+        "id": 18,
+        "make": "SEAT",
+        "model": "Leon",
+        "inStock": true
+    }
+]

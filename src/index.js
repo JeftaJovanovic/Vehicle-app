@@ -6,17 +6,14 @@ import * as serviceWorker from './serviceWorker';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
+
 import { Provider } from 'mobx-react';
 import RootStore from './store/RootStore';
 
 const rootStore = new RootStore();
 
 ReactDOM.render(
-    <Provider
-        rootStore={rootStore}
-        vehicleMakeStore={rootStore.vehicleMakeStore}
-        vehicleModelStore={rootStore.vehicleModelStore}
-    >
+    <Provider rootStore={rootStore}>
         <App />
     </Provider>
     , document.getElementById('root'));

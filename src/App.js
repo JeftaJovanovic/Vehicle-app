@@ -1,14 +1,15 @@
 import React from 'react';
-import VehicleModelViewList from './components/VehicleModelViewList';
+import VehicleModelListView from './components/VehicleModelListView';
 import { observer, inject } from 'mobx-react';
+import './App.css';
 
-@inject('rootStore', 'vehicleMakeStore', 'vehicleModelStore')
+@inject('rootStore')
 
 @observer
 class App extends React.Component {
   render() {
     return (
-      <VehicleModelViewList />
+      <VehicleModelListView />
     )
   }
 }

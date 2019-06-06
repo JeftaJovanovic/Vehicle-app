@@ -92,34 +92,107 @@ class VehicleModelStore {
             "Name": "Clio",
             "MakeId": 5,
             "Abrv": "Renault"
+        },
+        {
+            "Id": 16,
+            "Name": "RX 8",
+            "MakeId": 6,
+            "Abrv": "Mazda"
+        },
+        {
+            "Id": 17,
+            "Name": "Miata",
+            "MakeId": 6,
+            "Abrv": "Mazda"
+        },
+        {
+            "Id": 18,
+            "Name": "323f",
+            "MakeId": 6,
+            "Abrv": "Mazda"
+        },
+        {
+            "Id": 19,
+            "Name": "Astra",
+            "MakeId": 7,
+            "Abrv": "Opel"
+        },
+        {
+            "Id": 20,
+            "Name": "Vectra",
+            "MakeId": 7,
+            "Abrv": "Opel"
+        },
+        {
+            "Id": 21,
+            "Name": "Corsa",
+            "MakeId": 7,
+            "Abrv": "Opel"
         }
     ];
 
-    @observable modelNameFilter = '';
-    @observable sortByIdAscDesc = true;
+    find(searchString, page, rpp, orderBy, orderDirection) {
 
-    find = () => {
-        return this.vehicleModels.filter(model =>
-            !this.modelNameFilter || model.Name.toLowerCase().indexOf(this.modelNameFilter.toLowerCase()) > -1).sort((a, b) => {
-                return this.sortByIdAscDesc ? a.Id - b.Id : b.Id - a.Id;
+        let outData = this.vehicleModels.slice();
+
+        if (searchString != null && searchString !== '') {
+            outData = outData.filter(model =>
+                model.Name.toLowerCase().indexOf(searchString.toLowerCase()) > -1)
+        }
+
+        if (orderBy === 'Id') {
+            outData.sort((a, b) => {
+                return orderDirection === 'asc' ? a.Id - b.Id : b.Id - a.Id;
             });
+        } else if (orderBy === 'Abrv') {
+            outData.sort((a, b) => {
+                console.log(a.Abrv < b.Abrv)
+                return orderDirection === 'asc' ? (a.Abrv.toUpperCase() > b.Abrv.toUpperCase()) ? 1 : -1 : (a.Abrv.toUpperCase() < b.Abrv.toUpperCase()) ? 1 : -1;
+            });
+        } else if (orderBy === 'Name') {
+            outData.sort((a, b) => {
+                return orderDirection === 'asc' ? (a.Name.toUpperCase() > b.Name.toUpperCase()) ? 1 : -1 : (a.Name.toUpperCase() < b.Name.toUpperCase()) ? 1 : -1;
+            });
+        }
+
+        let itemsCount = outData.length;
+
+        outData = this.paginate(outData, rpp, page);
+
+        return {
+            searchString: searchString,
+            page: page,
+            rpp: rpp,
+            orderBy: orderBy,
+            orderDirection: orderDirection,
+            itemsCount: itemsCount,
+            items: outData
+        };
+
+    }
+
+    paginate(outData, rpp, page) {
+        --page;
+        return outData.slice(page * rpp, (page + 1) * rpp);
     }
 
     @action get(id) {
 
     }
 
-    @action create(make) {
+    @action create(model) {
 
     }
 
-    @action update(make) {
+    @action update(model) {
 
     }
 
     @action delete(id) {
 
     }
+
+
 }
 
 export default VehicleModelStore;

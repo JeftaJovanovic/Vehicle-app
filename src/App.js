@@ -1,15 +1,23 @@
 import React from 'react';
-import VehicleModelListView from './components/VehicleModelListView';
-import { observer, inject } from 'mobx-react';
+import RootStore from './store/RootStore';
+import { Provider } from 'mobx-react';
+import { HistoryAdapter } from 'mobx-state-router';
+import { history } from './shared/utils/history';
+import Shell from './shell';
+
 import './App.css';
 
-@inject('rootStore')
+const rootStore = new RootStore();
 
-@observer
+const historyAdapter = new HistoryAdapter(rootStore.routerStore, history);
+historyAdapter.observeRouterStateChanges();
+
 class App extends React.Component {
   render() {
     return (
-      <VehicleModelListView />
+      <Provider rootStore={rootStore}>
+        <Shell />
+      </Provider>
     )
   }
 }

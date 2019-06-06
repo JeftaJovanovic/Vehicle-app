@@ -9,20 +9,27 @@ import Header from './Header';
 
 
 @inject(i => ({
-    vehicleModelListViewStore: i.rootStore.vehicleModelListViewStore
+    vehicleModelListViewStore: i.rootStore.vehicleModelListViewStore,
+    rootStore: i.rootStore
 }))
 
 @observer
 class VehicleModelListView extends React.Component {
 
     render() {
+
         const { items: data, setOrderDirection, setOrderBy, setSearchString, setPage, setRpp } = this.props.vehicleModelListViewStore;
 
         const { searchString, orderBy, items, page, rpp, itemsCount, orderDirection } = data;
 
         return (
+
             <React.Fragment>
                 <Header />
+                <div >
+                    <h1>Welcome to </h1>
+                    <button onClick={this.handleClick}>Go Home!</button>
+                </div>
                 <Container>
                     <Form>
                         <Row>
@@ -51,7 +58,7 @@ class VehicleModelListView extends React.Component {
                                     </Form.Control>
                                 </Form.Group>
                             </Col>
-                            <Col b-2 lg={true}>
+                            <Col lg={true}>
                                 <Form.Group>
                                     <Form.Label>Results Per Page</Form.Label>
                                     <Form.Control as="select" value={rpp} onChange={e => setRpp(e.target.value)}>
@@ -95,6 +102,10 @@ class VehicleModelListView extends React.Component {
             </React.Fragment>
         )
     }
+    handleClick = () => {
+        const { rootStore } = this.props;
+        rootStore.routerStore.goTo('home');
+    };
 
 }
 

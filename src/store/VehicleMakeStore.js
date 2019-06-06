@@ -27,7 +27,28 @@ class VehicleMakeStore {
             "id": 5,
             "name": "Groupe Renault",
             "Abrv": "RENAULT"
+        },
+        {
+            "id": 6,
+            "name": "Mazda Motor Corporation",
+            "Abrv": "MAZDA"
+        },
+        {
+            "id": 7,
+            "name": "Opel Automobile GmbH",
+            "Abrv": "OPEL"
+        },
+        {
+            "id": 8,
+            "name": "Citroen",
+            "Abrv": "CITROEN"
+        },
+        {
+            "id": 9,
+            "name": "Toyota Motor Corporation",
+            "Abrv": "TOYOTA"
         }
+
     ];
 
     find() {

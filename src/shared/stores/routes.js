@@ -4,11 +4,19 @@ export const routes = [
         pattern: '/'
     },
     {
-        name: 'vehicleModelListView',
-        pattern: '/vehicles'
+        name: 'vehicleModelList',
+        pattern: '/vehicle-model'
     },
     {
         name: 'notFound',
         pattern: '/not-found'
+    },
+    {
+        name: 'createVehicle',
+        pattern: '/vehicle-model/create'
+    },
+    {
+        name: 'editVehicle',
+        pattern: '/vehicle-model/:id'
     }
 ];

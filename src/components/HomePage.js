@@ -20,7 +20,7 @@ class HomePage extends React.Component {
 
     handleClick = () => {
         const { rootStore } = this.props;
-        rootStore.routerStore.goTo('vehicleModelListView');
+        rootStore.routerStore.goTo('vehicleModelList');
     };
 
 }

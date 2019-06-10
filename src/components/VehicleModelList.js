@@ -1,7 +1,6 @@
 import React from 'react';
-import { Table, Form, Col, Row, Container } from 'react-bootstrap';
+import { Table, Form, Col, Row, Container, Button } from 'react-bootstrap';
 import { observer, inject } from "mobx-react";
-import Vehicle from './Vehicle';
 import Pagination from 'react-js-pagination';
 import Header from './Header';
 
@@ -16,19 +15,23 @@ import Header from './Header';
 @observer
 class VehicleModelListView extends React.Component {
 
+
     render() {
 
-        const { items: data, setOrderDirection, setOrderBy, setSearchString, setPage, setRpp } = this.props.vehicleModelListViewStore;
+        const { modelItems: modelData, setOrderDirection, setOrderBy, setSearchString, setPage, setRpp, deleteVehicleModel } = this.props.vehicleModelListViewStore;
 
-        const { searchString, orderBy, items, page, rpp, itemsCount, orderDirection } = data;
+        const { searchString, orderBy, items, page, rpp, itemsCount, orderDirection, NewId } = modelData;
 
+        const { routerStore } = this.props.rootStore;
+
+        console.log(NewId);
         return (
 
             <React.Fragment>
                 <Header />
                 <div >
                     <h1>Welcome to </h1>
-                    <button onClick={this.handleClick}>Go Home!</button>
+                    <Button onClick={e => routerStore.goTo('home')}>Go Home!</Button>
                 </div>
                 <Container>
                     <Form>
@@ -43,9 +46,9 @@ class VehicleModelListView extends React.Component {
                                 <Form.Group>
                                     <Form.Label>Sort</Form.Label>
                                     <Form.Control as="select" value={orderBy} onChange={e => setOrderBy(e.target.value)}>
-                                        <option value='Id'>Sort By ID</option>
-                                        <option value='Abrv'>Sort By Make Name</option>
-                                        <option value='Name'>Sort By Model Name</option>
+                                        <option value='id'>Sort By ID</option>
+                                        <option value='abrv'>Sort By Make Name</option>
+                                        <option value='name'>Sort By Model Name</option>
                                     </Form.Control>
                                 </Form.Group>
                             </Col>
@@ -68,20 +71,34 @@ class VehicleModelListView extends React.Component {
                                     </Form.Control>
                                 </Form.Group>
                             </Col>
+                            <Col lg={true}>
+                                <Form.Label>Add Model</Form.Label> <br />
+                                <Button variant="primary" size="md" active onClick={e => routerStore.goTo('createVehicle')}>
+                                    ADD
+                                </Button>
+                            </Col>
                         </Row>
                     </Form>
-                    <Table striped bordered hover>
+                    <Table responsive striped bordered hover>
                         <thead>
                             <tr>
-                                <th>Vehicle ID</th>
-                                <th>Make Name</th>
+                                <th>ID</th>
+                                <th>Abrv</th>
                                 <th>Model Name</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             {items.map((vehicleModel) => {
                                 return (
-                                    <Vehicle key={vehicleModel.Id} vehicleModel={vehicleModel} />
+                                    <tr key={vehicleModel.id}>
+                                        <td>{vehicleModel.id}</td>
+                                        <td>{vehicleModel.abrv}</td>
+                                        <td>{vehicleModel.name}</td>
+                                        <td><Button onClick={e => routerStore.goTo('editVehicle', { id: vehicleModel.id })}>Edit</Button></td>
+                                        <td><Button value={vehicleModel.id} onClick={deleteVehicleModel} >Delete</Button></td>
+                                    </tr>
                                 );
                             })}
 
@@ -102,11 +119,6 @@ class VehicleModelListView extends React.Component {
             </React.Fragment>
         )
     }
-    handleClick = () => {
-        const { rootStore } = this.props;
-        rootStore.routerStore.goTo('home');
-    };
-
 }
 
 export default VehicleModelListView;

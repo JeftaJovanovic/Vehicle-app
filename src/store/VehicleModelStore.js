@@ -5,225 +5,231 @@ class VehicleModelStore {
 
     @observable vehicleModels = [
         {
-            "Id": 1,
-            "Name": "Q7",
-            "MakeId": 1,
-            "Abrv": "AUDI"
+            "id": 1,
+            "name": "Q7",
+            "makeId": 1,
+            "abrv": "q7"
         },
         {
-            "Id": 2,
-            "Name": "A3",
-            "MakeId": 1,
-            "Abrv": "AUDI"
+            "id": 2,
+            "name": "A 3",
+            "makeId": 1,
+            "abrv": "a-3"
         },
         {
-            "Id": 3,
-            "Name": "TT",
-            "MakeId": 1,
-            "Abrv": "AUDI"
+            "id": 3,
+            "name": "TT",
+            "makeId": 1,
+            "abrv": "tt"
         },
         {
-            "Id": 4,
-            "Name": "M3",
-            "MakeId": 2,
-            "Abrv": "BMW"
+            "id": 4,
+            "name": "M3",
+            "makeId": 2,
+            "abrv": "m3"
         },
         {
-            "Id": 5,
-            "Name": "X3",
-            "MakeId": 2,
-            "Abrv": "BMW"
+            "id": 5,
+            "name": "X3",
+            "makeId": 2,
+            "abrv": "x3"
         },
         {
-            "Id": 6,
-            "Name": "X5",
-            "MakeId": 2,
-            "Abrv": "BMW"
+            "id": 6,
+            "name": "X5",
+            "makeId": 2,
+            "abrv": "x5"
         },
         {
-            "Id": 7,
-            "Name": "Tipo",
-            "MakeId": 3,
-            "Abrv": "FIAT"
+            "id": 7,
+            "name": "Tipo",
+            "makeId": 3,
+            "abrv": "tipo"
         },
         {
-            "Id": 8,
-            "Name": "Uno",
-            "MakeId": 3,
-            "Abrv": "FIAT"
+            "id": 8,
+            "name": "Uno",
+            "makeId": 3,
+            "abrv": "uno"
         },
         {
-            "Id": 9,
-            "Name": "Punto",
-            "MakeId": 3,
-            "Abrv": "FIAT"
+            "id": 9,
+            "name": "Punto",
+            "makeId": 3,
+            "abrv": "punto"
         },
         {
-            "Id": 10,
-            "Name": "Ibiza",
-            "MakeId": 4,
-            "Abrv": "SEAT"
+            "id": 10,
+            "name": "Ibiza",
+            "makeId": 4,
+            "abrv": "ibiza"
         },
         {
-            "Id": 11,
-            "Name": "Leon",
-            "MakeId": 4,
-            "Abrv": "SEAT"
+            "id": 11,
+            "name": "Leon",
+            "makeId": 4,
+            "abrv": "leon"
         },
         {
-            "Id": 12,
-            "Name": "Cupra",
-            "MakeId": 4,
-            "Abrv": "SEAT"
+            "id": 12,
+            "name": "Cupra",
+            "makeId": 4,
+            "abrv": "cupra"
         },
         {
-            "Id": 13,
-            "Name": "Megane",
-            "MakeId": 5,
-            "Abrv": "RENAULT"
+            "id": 13,
+            "name": "Megane",
+            "makeId": 5,
+            "abrv": "megane"
         },
         {
-            "Id": 14,
-            "Name": "Laguna",
-            "MakeId": 5,
-            "Abrv": "RENAULT"
+            "id": 14,
+            "name": "Laguna",
+            "makeId": 5,
+            "abrv": "laguna"
         },
         {
-            "Id": 15,
-            "Name": "Clio",
-            "MakeId": 5,
-            "Abrv": "RENAULT"
+            "id": 15,
+            "name": "Clio",
+            "makeId": 5,
+            "abrv": "clio"
         },
         {
-            "Id": 16,
-            "Name": "RX 8",
-            "MakeId": 6,
-            "Abrv": "MAZDA"
+            "id": 16,
+            "name": "RX 8",
+            "makeId": 6,
+            "abrv": "rx-8"
         },
         {
-            "Id": 17,
-            "Name": "Miata",
-            "MakeId": 6,
-            "Abrv": "MAZDA"
+            "id": 17,
+            "name": "Miata",
+            "makeId": 6,
+            "abrv": "miata"
         },
         {
-            "Id": 18,
-            "Name": "323f",
-            "MakeId": 6,
-            "Abrv": "MAZDA"
+            "id": 18,
+            "name": "323 f",
+            "makeId": 6,
+            "abrv": "323-f"
         },
         {
-            "Id": 19,
-            "Name": "Astra",
-            "MakeId": 7,
-            "Abrv": "OPEL"
+            "id": 19,
+            "name": "Astra",
+            "makeId": 7,
+            "abrv": "astra"
         },
         {
-            "Id": 20,
-            "Name": "Vectra",
-            "MakeId": 7,
-            "Abrv": "OPEL"
+            "id": 20,
+            "name": "Vectra",
+            "makeId": 7,
+            "abrv": "vectra"
         },
         {
-            "Id": 21,
-            "Name": "Corsa",
-            "MakeId": 7,
-            "Abrv": "OPEL"
+            "id": 21,
+            "name": "Corsa",
+            "makeId": 7,
+            "abrv": "corsa"
         },
         {
-            "Id": 22,
-            "Name": "BX",
-            "MakeId": 8,
-            "Abrv": "CITROEN"
+            "id": 22,
+            "name": "BX",
+            "makeId": 8,
+            "abrv": "bx"
         },
         {
-            "Id": 23,
-            "Name": "Saxo",
-            "MakeId": 8,
-            "Abrv": "CITROEN"
+            "id": 23,
+            "name": "Saxo",
+            "makeId": 8,
+            "abrv": "saxo"
         },
         {
-            "Id": 24,
-            "Name": "C4",
-            "MakeId": 8,
-            "Abrv": "CITROEN"
+            "id": 24,
+            "name": "C4",
+            "makeId": 8,
+            "abrv": "c4"
         },
         {
-            "Id": 25,
-            "Name": "Celica",
-            "MakeId": 9,
-            "Abrv": "TOYOTA"
+            "id": 25,
+            "name": "Celica",
+            "makeId": 9,
+            "abrv": "celica"
         },
         {
-            "Id": 26,
-            "Name": "Hilux",
-            "MakeId": 9,
-            "Abrv": "TOYOTA"
+            "id": 26,
+            "name": "Hilux",
+            "makeId": 9,
+            "abrv": "hilux"
         },
         {
-            "Id": 27,
-            "Name": "AE86",
-            "MakeId": 9,
-            "Abrv": "TOYOTA"
+            "id": 27,
+            "name": "AE86",
+            "makeId": 9,
+            "abrv": "ae86"
+        },
+        {
+            "id": 28,
+            "name": "Land Cruiser",
+            "makeId": 9,
+            "abrv": "land-cruiser"
         }
     ];
 
+
     find(searchString, page, rpp, orderBy, orderDirection) {
 
-        let outData = this.vehicleModels.slice();
+        let modelData = this.vehicleModels.slice();
+
+        let lastTakenId = 0;
+
+        modelData.forEach((model) => {
+            if (model.id > lastTakenId) {
+                return lastTakenId = model.id;
+            }
+        });
+
+        let newId = lastTakenId + 1;
+
 
         if (searchString != null && searchString !== '') {
-            outData = outData.filter(model =>
-                model.Name.toLowerCase().indexOf(searchString.toLowerCase()) > -1);
+            modelData = modelData.filter(model =>
+                model.name.toLowerCase().indexOf(searchString.toLowerCase()) > -1);
         }
 
-        // if (orderBy === 'Id') {
-        //     outData.sort((a, b) => {
-        //         return orderDirection === 'asc' ? a.Id - b.Id : b.Id - a.Id;
-        //     });
-        // } else if (orderBy === 'Abrv') {
-        //     outData.sort((a, b) => {
-        //         console.log(a.Abrv < b.Abrv)
-        //         return orderDirection === 'asc' ? (a.Abrv.toUpperCase() > b.Abrv.toUpperCase()) ? 1 : -1 : (a.Abrv.toUpperCase() < b.Abrv.toUpperCase()) ? 1 : -1;
-        //     });
-        // } else if (orderBy === 'Name') {
-        //     outData.sort((a, b) => {
-        //         return orderDirection === 'asc' ? (a.Name.toUpperCase() > b.Name.toUpperCase()) ? 1 : -1 : (a.Name.toUpperCase() < b.Name.toUpperCase()) ? 1 : -1;
-        //     });
-        // }
+        modelData = _.orderBy(modelData, [orderBy], [orderDirection]);
 
-        outData = _.orderBy(outData, [orderBy], [orderDirection]);
+        let itemsCount = modelData.length;
 
-        let itemsCount = outData.length;
-
-        outData = _(outData).drop((page - 1) * rpp).take(rpp).value();
+        modelData = _(modelData).drop((page - 1) * rpp).take(rpp).value();
 
         return {
+            newId: newId,
             searchString: searchString,
             page: page,
             rpp: rpp,
             orderBy: orderBy,
             orderDirection: orderDirection,
             itemsCount: itemsCount,
-            items: outData
+            items: modelData,
+
         };
 
     }
 
-    @action get(id) {
 
+    // @action.bound get(id) {
+    //     return this.vehicleModels[--id];
+    // }
+
+    @action.bound add(newModel) {
+        this.vehicleModels.push(newModel);
     }
 
-    @action create(model) {
+    // @action update(model) {
 
-    }
+    // }
 
-    @action update(model) {
-
-    }
-
-    @action delete(id) {
-
+    @action.bound delete(id) {
+        this.vehicleModels.splice(this.vehicleModels.findIndex((i) => { return i.id == id; }), 1);
     }
 
 

@@ -14,16 +14,6 @@ const viewMap = {
     createVehicle: <VehicleModelCreateView />,
     editVehicleModel: <VehicleModelEditView />
 };
-/* @inject('rootStore')
-class Shell extends React.Component {
-    render() {
-        const { rootStore } = this.props;
-        const { routerStore } = rootStore;
-
-        return <RouterView routerStore={routerStore} viewMap={viewMap} />;
-    }
-}
-export default Shell; */
 
 export const Shell = inject('rootStore')(
     class extends React.Component {

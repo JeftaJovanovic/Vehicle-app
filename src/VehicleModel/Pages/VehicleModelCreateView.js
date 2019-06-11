@@ -1,10 +1,9 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import VehicleModelCreateForm from '../Components/VehicleModelCreateForm';
 
 @inject(i => ({
     rootStore: i.rootStore,
-    createNewVehicleModelStore: i.rootStore.createNewVehicleModelStore
+    vehicleModelCreateViewStore: i.rootStore.vehicleModelModuleStore.vehicleModelCreateViewStore
 
 }))
 
@@ -18,33 +17,28 @@ class VehicleModelCreateView extends React.Component {
 
     render() {
 
-        const { form } = this.props.createNewVehicleModelStore;
-
+        const { form } = this.props.vehicleModelCreateViewStore;
+        console.log(form.fields);
         return (
             <React.Fragment>
                 <form>
-                    <label htmlFor={form.$('fromValue').id}>
-                        {form.$('fromValue').label}
-                    </label>
-                    <input {...form.$('fromValue').bind()} />
-                    <p>{form.$('fromValue').error}</p>
 
-                    <label htmlFor={form.$('toValue').id}>
-                        {form.$('toValue').label}
+                    <label htmlFor={form.$('Name').id}>
+                        {form.$('Name').label}
                     </label>
-                    <input {...form.$('toValue').bind()} />
+                    <input {...form.$('Name').bind()} />
 
-                    <label htmlFor={form.$('test').id}>
-                        {form.$('test').label}
+                    <label htmlFor={form.$('MakeId').id}>
+                        {form.$('MakeId').label}
                     </label>
-                    <select {...form.$('test').bind()}>
+                    <select {...form.$('MakeId').bind()}>
                         {[1, 2, 3, 4].map(i =>
                             <option key={i} value={i}>{i}</option>
                         )}
                     </select>
                     <br />
-                    Select option value: {form.$('test').value}
-                    <p>{form.$('toValue').error}</p>
+                    Select option value: {form.$('MakeId').value}
+                    <p>{form.$('Name').error}</p>
 
                     <button type="submit" onClick={form.onSubmit}>Submit</button>
                     <button type="button" onClick={form.onClear}>Clear</button>

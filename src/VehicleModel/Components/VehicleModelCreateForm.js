@@ -1,7 +1,7 @@
 import BaseForm from '../../Common/BaseForm';
 
 class VehicleModelCreateForm extends BaseForm {
-    constructor(fields, hooks) {
+    constructor(hooks) {
         super({
             fields: [
                 {

@@ -7,18 +7,17 @@ class VehicleModelListViewStore {
     @observable orderBy = 'id';
     @observable orderDirection = 'asc';
 
-    constructor(rootStore) {
-        this.rootStore = rootStore;
-        this.vehicleModelStore = rootStore.vehicleModelStore;
-        this.vehicleMakeStore = rootStore.vehicleMakeStore;
+    constructor(moduleStore) {
+        this.moduleStore = moduleStore;
+        this.vehicleModelStore = moduleStore.vehicleModelStore;
+        //this.vehicleMakeStore = moduleStore.vehicleMakeStore;
     }
 
-    @computed get makeItems() {
-        return this.vehicleMakeStore.find(this.searchString, this.page, this.rpp, this.orderBy, this.orderDirection);
-    }
+    // @computed get makeItems() {
+    //     return this.vehicleMakeStore.find(this.searchString, this.page, this.rpp, this.orderBy, this.orderDirection);
+    // }
 
     @computed get modelItems() {
-        console.log(this.vehicleModelStore);
         return this.vehicleModelStore.find(this.searchString, this.page, this.rpp, this.orderBy, this.orderDirection);
     }
     @action.bound setPage(newPage) {

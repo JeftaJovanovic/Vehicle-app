@@ -1,11 +1,9 @@
 import React from 'react';
-import RootStore from './store/RootStore';
+import RootStore from './RootStore';
 import { Provider } from 'mobx-react';
 import { HistoryAdapter } from 'mobx-state-router';
-import { history } from './shared/utils/history';
-import Shell from './shell';
-
-import './App.css';
+import { history } from './history';
+import { Shell } from './shell';
 
 const rootStore = new RootStore();
 
@@ -18,8 +16,9 @@ class App extends React.Component {
       <Provider rootStore={rootStore}>
         <Shell />
       </Provider>
-    )
+    );
   }
 }
 
 export default App;
+

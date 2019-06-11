@@ -2,13 +2,13 @@ import React from 'react';
 import { Table, Form, Col, Row, Container, Button } from 'react-bootstrap';
 import { observer, inject } from "mobx-react";
 import Pagination from 'react-js-pagination';
-import Header from './Header';
+import Header from '../../Components/Header';
 
 
 
 
 @inject(i => ({
-    vehicleModelListViewStore: i.rootStore.vehicleModelListViewStore,
+    vehicleModelListViewStore: i.rootStore.vehicleModelModuleStore.vehicleModelListViewStore,
     rootStore: i.rootStore
 }))
 

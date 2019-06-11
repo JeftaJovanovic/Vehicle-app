@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../logo.svg';
 import Navbar from 'react-bootstrap/Navbar'
 import { inject } from 'mobx-react';
 
@@ -10,13 +9,6 @@ class Header extends React.Component {
         return (
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="#home" onClick={this.handleClick}>
-                    <img
-                        alt="logo"
-                        src={logo}
-                        width="30"
-                        height="30"
-                        className="d-inline-block align-top"
-                    />
                     {' Vehicle App'}
                 </Navbar.Brand>
             </Navbar>

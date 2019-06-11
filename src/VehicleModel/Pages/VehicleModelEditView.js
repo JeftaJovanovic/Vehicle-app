@@ -1,6 +1,6 @@
 import React from 'react';
 
-class EditVehicleModel extends React.Component {
+class VehicleModelEditView extends React.Component {
     render() {
         return (
             <p>Test</p>
@@ -8,4 +8,4 @@ class EditVehicleModel extends React.Component {
     }
 }
 
-export default EditVehicleModel;
+export default VehicleModelEditView;

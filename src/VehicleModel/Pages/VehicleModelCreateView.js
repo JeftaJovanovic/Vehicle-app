@@ -18,15 +18,15 @@ class VehicleModelCreateView extends React.Component {
     render() {
 
         const { form } = this.props.vehicleModelCreateViewStore;
-        console.log(form.fields);
+        console.log(form);
         return (
             <React.Fragment>
                 <form>
-
-                    <label htmlFor={form.$('Name').id}>
+                    <label htmlFor={form.$('Name')}>
                         {form.$('Name').label}
                     </label>
                     <input {...form.$('Name').bind()} />
+                    <p>{form.$('Name').error}</p>
 
                     <label htmlFor={form.$('MakeId').id}>
                         {form.$('MakeId').label}

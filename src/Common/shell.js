@@ -12,7 +12,7 @@ const viewMap = {
     home: <HomePage />,
     notFound: <NotFoundPage />,
     createVehicle: <VehicleModelCreateView />,
-    editVehicleModel: <VehicleModelEditView />
+    editVehicle: <VehicleModelEditView />
 };
 
 export const Shell = inject('rootStore')(

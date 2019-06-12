@@ -215,10 +215,17 @@ class VehicleModelStore {
 
     }
 
-
-    // @action.bound get(id) {
-    //     return this.vehicleModels[--id];
-    // }
+    @action.bound
+    get(id) {
+        // wants to strictly compare 'any' and 'number' types (gives warning)
+        // eslint-disable-next-line
+        console.log('id koji sam dobio je ' + id);
+        let itemIndex = _.findIndex(this.vehicleModels, function (o) { return o.id == id; });
+        console.log('tu sam');
+        console.log('item index je ' + itemIndex);
+        let caughtModel = this.vehicleModel[itemIndex];
+        return caughtModel;
+    }
 
     @action.bound add(newModel) {
         let maxID = 0;

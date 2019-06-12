@@ -4,7 +4,6 @@ import { inject, observer } from 'mobx-react';
 @inject(i => ({
     rootStore: i.rootStore,
     vehicleModelCreateViewStore: i.rootStore.vehicleModelModuleStore.vehicleModelCreateViewStore
-
 }))
 
 @observer
@@ -17,8 +16,7 @@ class VehicleModelCreateView extends React.Component {
 
     render() {
 
-        const { form, makes, bla } = this.props.vehicleModelCreateViewStore;
-        bla();
+        const { form, makes } = this.props.vehicleModelCreateViewStore;
         return (
             <React.Fragment>
                 <form>
@@ -37,13 +35,11 @@ class VehicleModelCreateView extends React.Component {
                         )}
                     </select>
                     <br />
-                    Select option value: {form.$('makeId').value}
-                    <p>{form.$('name').error}</p>
 
                     <button type="submit" onClick={form.onSubmit}>Submit</button>
                     <button type="button" onClick={form.onClear}>Clear</button>
                     <button type="button" onClick={form.onReset}>Reset</button>
-                    <button onClick={this.handleClick}>Go to models</button>
+                    <button type="button" onClick={this.handleClick}>Go to models</button>
 
                     <p>{form.error}</p>
                 </form>

@@ -1,5 +1,9 @@
+import BaseForm from '../../Common/BaseForm';
+
 class VehicleModelEditForm extends BaseForm {
-    constructor(fields) {
-        super(fields)
+    constructor(fields, hooks) {
+        super(fields, hooks)
     }
 }
+
+export default VehicleModelEditForm;

@@ -18,13 +18,6 @@ class VehicleModelCreateViewStore {
 
     @observable makes = this.vehicleMakeStore.vehicleMakes;
 
-    @action.bound bla() {
-        console.log(this.rootStore);
-        console.log(this.vehicleMakeStore.vehicleMakes);
-
-    }
-
-
 }
 
 export default VehicleModelCreateViewStore;

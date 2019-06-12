@@ -1,5 +1,5 @@
 import VehicleModelCreateForm from '../Components/VehicleModelCreateForm';
-import { action } from 'mobx';
+import { action, observable } from 'mobx';
 
 class VehicleModelCreateViewStore {
     constructor(rootStore) {
@@ -16,9 +16,12 @@ class VehicleModelCreateViewStore {
         });
     }
 
+    @observable makes = this.vehicleMakeStore.vehicleMakes;
+
     @action.bound bla() {
-        console.log(this.vehicleModelStore);
-        console.log(this.vehicleMakeStore);
+        console.log(this.rootStore);
+        console.log(this.vehicleMakeStore.vehicleMakes);
+
     }
 
 

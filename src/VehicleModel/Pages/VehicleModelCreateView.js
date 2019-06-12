@@ -17,7 +17,7 @@ class VehicleModelCreateView extends React.Component {
 
     render() {
 
-        const { form, bla } = this.props.vehicleModelCreateViewStore;
+        const { form, makes, bla } = this.props.vehicleModelCreateViewStore;
         bla();
         return (
             <React.Fragment>
@@ -32,8 +32,8 @@ class VehicleModelCreateView extends React.Component {
                         {form.$('makeId').label}
                     </label>
                     <select {...form.$('makeId').bind()}>
-                        {[1, 2, 3, 4].map(i =>
-                            <option key={i} value={i}>{i}</option>
+                        {makes.map(make =>
+                            <option key={make.id} value={make.id}>{make.name}</option>
                         )}
                     </select>
                     <br />

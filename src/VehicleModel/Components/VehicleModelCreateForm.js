@@ -4,16 +4,16 @@ class VehicleModelCreateForm extends BaseForm {
     constructor(hooks) {
         super([
             {
-                name: "Name",
+                name: "name",
                 label: "Model name",
                 placeholder: "Insert model's name"
             },
             {
-                name: "MakeId",
+                name: "makeId",
                 label: "Make name",
                 placeholder: "Insert model's name"
             }
-        ], { hooks })
+        ], hooks)
     }
 }
 

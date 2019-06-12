@@ -221,7 +221,15 @@ class VehicleModelStore {
     // }
 
     @action.bound add(newModel) {
+        let maxID = 0;
+        this.vehicleModels.map(function (vehicle) {
+            if (vehicle.id > maxID) maxID = vehicle.id;
+            return maxID += 1;
+        });
+        newModel.id = maxID;
+        newModel.abrv = String(newModel.name.toLowerCase().trim().replace(/ /g, "-"));
         this.vehicleModels.push(newModel);
+
     }
 
     // @action update(model) {

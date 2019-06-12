@@ -17,32 +17,33 @@ class VehicleModelCreateView extends React.Component {
 
     render() {
 
-        const { form } = this.props.vehicleModelCreateViewStore;
-        console.log(form);
+        const { form, bla } = this.props.vehicleModelCreateViewStore;
+        bla();
         return (
             <React.Fragment>
                 <form>
-                    <label htmlFor={form.$('Name')}>
-                        {form.$('Name').label}
+                    <label htmlFor={form.$('name')}>
+                        {form.$('name').label}
                     </label>
-                    <input {...form.$('Name').bind()} />
-                    <p>{form.$('Name').error}</p>
+                    <input {...form.$('name').bind()} />
+                    <p>{form.$('name').error}</p>
 
-                    <label htmlFor={form.$('MakeId').id}>
-                        {form.$('MakeId').label}
+                    <label htmlFor={form.$('makeId').id}>
+                        {form.$('makeId').label}
                     </label>
-                    <select {...form.$('MakeId').bind()}>
+                    <select {...form.$('makeId').bind()}>
                         {[1, 2, 3, 4].map(i =>
                             <option key={i} value={i}>{i}</option>
                         )}
                     </select>
                     <br />
-                    Select option value: {form.$('MakeId').value}
-                    <p>{form.$('Name').error}</p>
+                    Select option value: {form.$('makeId').value}
+                    <p>{form.$('name').error}</p>
 
                     <button type="submit" onClick={form.onSubmit}>Submit</button>
                     <button type="button" onClick={form.onClear}>Clear</button>
                     <button type="button" onClick={form.onReset}>Reset</button>
+                    <button onClick={this.handleClick}>Go to models</button>
 
                     <p>{form.error}</p>
                 </form>

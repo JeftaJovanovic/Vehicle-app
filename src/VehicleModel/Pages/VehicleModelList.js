@@ -20,11 +20,10 @@ class VehicleModelListView extends React.Component {
 
         const { modelItems: modelData, setOrderDirection, setOrderBy, setSearchString, setPage, setRpp, deleteVehicleModel } = this.props.vehicleModelListViewStore;
 
-        const { searchString, orderBy, items, page, rpp, itemsCount, orderDirection, NewId } = modelData;
+        const { searchString, orderBy, items, page, rpp, itemsCount, orderDirection } = modelData;
 
         const { routerStore } = this.props.rootStore;
 
-        console.log(NewId);
         return (
 
             <React.Fragment>

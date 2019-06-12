@@ -4,7 +4,6 @@ import { Form } from 'mobx-react-form';
 
 class BaseForm extends Form {
     constructor(fields, hooks) {
-        console.log(fields);
         super({ fields }, { hooks })
     }
 }

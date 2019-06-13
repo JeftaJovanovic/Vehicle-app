@@ -13,7 +13,7 @@ import Header from '../../Components/Header';
 }))
 
 @observer
-class VehicleModelListView extends React.Component {
+class VehicleModelList extends React.Component {
 
 
     render() {
@@ -120,4 +120,4 @@ class VehicleModelListView extends React.Component {
     }
 }
 
-export default VehicleModelListView;
+export default VehicleModelList;

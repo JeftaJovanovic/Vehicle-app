@@ -4,15 +4,15 @@ import { RouterView } from 'mobx-state-router';
 import { HomePage } from '../HomePage/Pages/HomePage';
 import { NotFoundPage } from '../Common/NotFoundPage';
 import VehicleModelList from '../VehicleModel/Pages/VehicleModelList';
-import VehicleModelCreateView from '../VehicleModel/Pages/VehicleModelCreateView';
-import VehicleModelEditView from '../VehicleModel/Pages/VehicleModelEditView';
+import VehicleModelCreate from '../VehicleModel/Pages/VehicleModelCreate';
+import VehicleModelEdit from '../VehicleModel/Pages/VehicleModelEdit';
 
 const viewMap = {
     vehicleModelList: <VehicleModelList />,
     home: <HomePage />,
     notFound: <NotFoundPage />,
-    createVehicle: <VehicleModelCreateView />,
-    editVehicle: <VehicleModelEditView />
+    createVehicle: <VehicleModelCreate />,
+    editVehicle: <VehicleModelEdit />
 };
 
 export const Shell = inject('rootStore')(

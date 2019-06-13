@@ -1,13 +1,14 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
+import VehicleModelEditViewStore from '../Stores/VehicleModelEditViewStore'
 
 @inject(i => ({
     rootStore: i.rootStore,
-    vehicleModelEditViewStore: i.rootStore.vehicleModelModuleStore.vehicleModelEditViewStore
+    vehicleModelEditViewStore: new VehicleModelEditViewStore(i.rootStore.vehicleModelModuleStore)
 }))
 
 @observer
-class VehicleModelEditView extends React.Component {
+class VehicleModelEdit extends React.Component {
 
     handleClick = () => {
         const { rootStore } = this.props;
@@ -15,13 +16,12 @@ class VehicleModelEditView extends React.Component {
     }
 
     render() {
-
-        const { form, makes, setModelId } = this.props.vehicleModelEditViewStore;
-        const { rootStore } = this.props;
-        const { params } = rootStore.routerStore.routerState;
-
-        console.log("ovo sam ispisao");
-        setModelId(params.id);
+        // const { rootStore } = this.props;
+        // const { params } = rootStore.routerStore.routerState;
+        const { makes, form } = this.props.vehicleModelEditViewStore;
+        //const form = getForm(params.id);
+        //console.log(params.id);
+        if (!form) return null;
         return (
             <React.Fragment>
                 {<form>
@@ -35,7 +35,7 @@ class VehicleModelEditView extends React.Component {
                         {form.$('makeId').label}
                     </label>
                     <select {...form.$('makeId').bind()}>
-                        {makes.map(make =>
+                        {makes.items.map(make =>
                             <option key={make.id} value={make.id}>{make.name}</option>
                         )}
                     </select>
@@ -53,4 +53,4 @@ class VehicleModelEditView extends React.Component {
     }
 }
 
-export default VehicleModelEditView;
+export default VehicleModelEdit;

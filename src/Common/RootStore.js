@@ -10,8 +10,8 @@ class RootStore {
     routerStore = new RouterStore(this, routes, notFound);
 
     constructor() {
-        this.vehicleModelModuleStore = new VehicleModelModuleStore(this);
         this.vehicleMakeModuleStore = new VehicleMakeModuleStore(this);
+        this.vehicleModelModuleStore = new VehicleModelModuleStore(this);
     }
 }
 

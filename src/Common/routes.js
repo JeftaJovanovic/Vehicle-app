@@ -5,7 +5,7 @@ export const routes = [
     },
     {
         name: 'vehicleModelList',
-        pattern: '/vehicle-model'
+        pattern: '/vehicle-models'
     },
     {
         name: 'notFound',
@@ -17,6 +17,6 @@ export const routes = [
     },
     {
         name: 'editVehicle',
-        pattern: '/vehicle-model/:id'
+        pattern: '/vehicle-model/:id/edit'
     }
 ];

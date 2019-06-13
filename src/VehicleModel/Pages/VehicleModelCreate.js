@@ -7,7 +7,7 @@ import { inject, observer } from 'mobx-react';
 }))
 
 @observer
-class VehicleModelCreateView extends React.Component {
+class VehicleModelCreate extends React.Component {
 
     handleClick = () => {
         const { rootStore } = this.props;
@@ -16,7 +16,8 @@ class VehicleModelCreateView extends React.Component {
 
     render() {
 
-        const { form, makes } = this.props.vehicleModelCreateViewStore;
+        const { form, makes } = this.props.vehicleModelCreateViewStore
+
         return (
             <React.Fragment>
                 <form>
@@ -43,9 +44,11 @@ class VehicleModelCreateView extends React.Component {
 
                     <p>{form.error}</p>
                 </form>
+
             </React.Fragment>
         );
     }
+
 }
 
-export default VehicleModelCreateView;
+export default VehicleModelCreate;

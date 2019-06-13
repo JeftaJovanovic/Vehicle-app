@@ -217,18 +217,25 @@ class VehicleModelStore {
 
     @action.bound get(id) {
         const s = this.vehicleModels.slice();
+        // eslint-disable-next-line
         let vehicle = _.find(s, function (o) { return o.id == id });
 
         return vehicle;
     }
 
     @action.bound add(newModel) {
-        let maxID = 0;
-        this.vehicleModels.map((vehicle) => {
-            if (vehicle.id > maxID) maxID = vehicle.id;
-            return maxID += 1;
-        });
-        newModel.id = maxID;
+        // let maxID = 0;
+        // this.vehicleModels.map((vehicle) => {
+        //     if (vehicle.id > maxID) maxID = vehicle.id;
+        //     return maxID += 1;
+        // });
+
+
+        const receivedObject = _.maxBy(this.vehicleModels, function (o) { return o.id; });
+
+        const returnedId = Number(receivedObject.id) + 1;
+
+        newModel.id = returnedId;
         newModel.abrv = String(newModel.name.toLowerCase().trim().replace(/ /g, "-"));
         this.vehicleModels.push(newModel);
 
@@ -239,6 +246,7 @@ class VehicleModelStore {
     // }
 
     @action.bound delete(id) {
+        // eslint-disable-next-line
         this.vehicleModels.splice(this.vehicleModels.findIndex((i) => { return i.id == id; }), 1);
     }
 

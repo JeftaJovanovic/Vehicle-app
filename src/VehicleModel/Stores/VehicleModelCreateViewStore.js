@@ -1,11 +1,11 @@
-import VehicleModelForm from '../Components/VehicleModelForm';
-import { action, observable } from 'mobx';
+import VehicleModelForm from '../Forms/VehicleModelForm';
+import { observable, computed } from 'mobx';
 
 class VehicleModelCreateViewStore {
-    constructor(rootStore) {
-        this.rootStore = rootStore;
-        this.vehicleModelStore = rootStore.vehicleModelStore;
-        this.vehicleMakeStore = rootStore.vehicleMakeStore;
+    constructor(moduleStore) {
+        this.moduleStore = moduleStore;
+        this.vehicleModelStore = moduleStore.vehicleModelStore;
+        this.vehicleMakeStore = moduleStore.rootStore.vehicleMakeModuleStore.vehicleMakeStore;
         this.form = new VehicleModelForm({
             onSuccess: (form) => {
                 return this.vehicleModelStore.add(form.values());
@@ -14,6 +14,10 @@ class VehicleModelCreateViewStore {
                 console.log(form.errors());
             }
         });
+    }
+
+    @computed get makes() {
+        return this.vehicleMakeStore.find('', 1, 100, 'name', 'asc');
     }
 
     @observable makes = this.vehicleMakeStore.vehicleMakes;

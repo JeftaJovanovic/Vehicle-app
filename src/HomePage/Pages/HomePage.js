@@ -1,5 +1,6 @@
 import React from 'react';
 import { inject } from 'mobx-react';
+import { Col, Row, Container, Button } from 'react-bootstrap';
 import Header from '../../Components/Header';
 
 export const HomePage = inject('rootStore')(
@@ -8,14 +9,21 @@ export const HomePage = inject('rootStore')(
             return (
                 <React.Fragment>
                     <Header />
-                    <div>
-                        <button value={'vehicleModelList'} onClick={this.handleClick}>
-                            Go to Vehicle Models List
-                        </button>
-                        <button value={'vehicleMakeList'} onClick={this.handleClick}>
-                            Go to Vehicle Makes List
-                        </button>
-                    </div>
+                    <Container>
+                        <Row className="justify-content-md-center">
+                            <Col xs lg="2">
+                                <Button value={'vehicleModelList'} onClick={this.handleClick}>
+                                    Go to Vehicle Models List
+                                </Button>
+                            </Col>
+                            <Col md="auto"></Col>
+                            <Col xs lg="2">
+                                <Button value={'vehicleMakeList'} onClick={this.handleClick}>
+                                    Go to Vehicle Makes List
+                            </Button>
+                            </Col>
+                        </Row>
+                    </Container>
                 </React.Fragment>
             );
         }

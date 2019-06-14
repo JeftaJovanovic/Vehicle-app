@@ -1,25 +1,24 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar'
+import { Navbar, Nav } from 'react-bootstrap'
 import { inject } from 'mobx-react';
 
 
 @inject('rootStore')
 class Header extends React.Component {
     render() {
+
+        const { routerStore } = this.props.rootStore;
+
         return (
             <Navbar bg="dark" variant="dark">
-                <Navbar.Brand href="#home" onClick={this.handleClick}>
-                    {' Vehicle App'}
-                </Navbar.Brand>
+                <Navbar.Brand onClick={e => routerStore.goTo('home')}>Vehicle App</Navbar.Brand>
+                <Nav className="mr-auto">
+                    <Nav.Link onClick={e => routerStore.goTo('vehicleModelList')}>Model List</Nav.Link>
+                    <Nav.Link onClick={e => routerStore.goTo('vehicleMakeList')}>Make List</Nav.Link>
+                </Nav>
             </Navbar>
         );
     }
-
-    handleClick = () => {
-        const { rootStore } = this.props;
-        rootStore.routerStore.goTo('home');
-    };
-
 }
 
 export default Header;

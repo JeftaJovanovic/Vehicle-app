@@ -23,7 +23,7 @@ import Header from '../../Components/Header';
             <React.Fragment>
                 <Header />
                 <Container>
-                    <Button variant="primary" size="md" active onClick={e => routerStore.goTo('home')}>Home</Button>
+                    <Button variant="primary" size="lg" value={'home'} onClick={this.handleClick}>Back</Button>
                     <Form>
                         <Row>
                             <Col lg={true}>
@@ -64,7 +64,7 @@ import Header from '../../Components/Header';
                             </Col>
                             <Col lg={true}>
                                 <Form.Label>Add Model</Form.Label> <br />
-                                <Button variant="primary" size="md" active onClick={e => routerStore.goTo('createModel')}>
+                                <Button variant="primary" size="md" onClick={e => routerStore.goTo('createModel')}>
                                     ADD
                                 </Button>
                             </Col>

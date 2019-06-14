@@ -6,16 +6,15 @@ import Header from '../../Components/Header';
 
 @inject(i => ({
     rootStore: i.rootStore,
-    vehicleModelListViewStore: i.rootStore.vehicleModelModuleStore.vehicleModelListViewStore
+    vehicleMakeListViewStore: i.rootStore.vehicleMakeModuleStore.vehicleMakeListViewStore
 }))
 
-@observer class VehicleModelList extends React.Component {
-
+@observer class VehicleMakeList extends React.Component {
     render() {
 
-        const { modelItems: modelData, setOrderDirection, setOrderBy, setSearchString, setPage, setRpp, deleteVehicleModel } = this.props.vehicleModelListViewStore;
+        const { makeItems: makeData, setOrderDirection, setOrderBy, setSearchString, setPage, setRpp, deleteVehicleMake } = this.props.vehicleMakeListViewStore;
 
-        const { searchString, orderBy, items, page, rpp, itemsCount, orderDirection } = modelData;
+        const { searchString, orderBy, items, page, rpp, itemsCount, orderDirection } = makeData;
 
         const { routerStore } = this.props.rootStore;
 
@@ -29,7 +28,7 @@ import Header from '../../Components/Header';
                             <Col lg={true}>
                                 <Form.Group>
                                     <Form.Label>Filter</Form.Label>
-                                    <Form.Control type="input" value={searchString} onChange={e => setSearchString(e.target.value)} placeholder="Model Name filter..." />
+                                    <Form.Control type="input" value={searchString} onChange={e => setSearchString(e.target.value)} placeholder="Make Name filter..." />
                                 </Form.Group>
                             </Col>
                             <Col lg={true}>
@@ -37,8 +36,7 @@ import Header from '../../Components/Header';
                                     <Form.Label>Sort</Form.Label>
                                     <Form.Control as="select" value={orderBy} onChange={e => setOrderBy(e.target.value)}>
                                         <option value='id'>Sort By ID</option>
-                                        <option value='name'>Sort By Model Name</option>
-                                        <option value='makeId'>Sort By Make ID</option>
+                                        <option value='name'>Sort By Make Name</option>
                                         <option value='abrv'>Sort By Abrv.</option>
                                     </Form.Control>
                                 </Form.Group>
@@ -63,8 +61,8 @@ import Header from '../../Components/Header';
                                 </Form.Group>
                             </Col>
                             <Col lg={true}>
-                                <Form.Label>Add Model</Form.Label> <br />
-                                <Button variant="primary" size="md" active onClick={e => routerStore.goTo('createModel')}>
+                                <Form.Label>Add Make</Form.Label> <br />
+                                <Button variant="primary" size="md" active onClick={e => routerStore.goTo('createMake')}>
                                     ADD
                                 </Button>
                             </Col>
@@ -74,23 +72,21 @@ import Header from '../../Components/Header';
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Model Name</th>
-                                <th>Make ID</th>
+                                <th>Make Name</th>
                                 <th>Abrv</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {items.map((vehicleModel) => {
+                            {items.map((vehicleMake) => {
                                 return (
-                                    <tr key={vehicleModel.id}>
-                                        <td>{vehicleModel.id}</td>
-                                        <td>{vehicleModel.name}</td>
-                                        <td>{vehicleModel.makeId}</td>
-                                        <td>{vehicleModel.abrv}</td>
-                                        <td><Button onClick={e => routerStore.goTo('editModel', { id: vehicleModel.id })}>Edit</Button></td>
-                                        <td><Button value={vehicleModel.id} onClick={deleteVehicleModel} >Delete</Button></td>
+                                    <tr key={vehicleMake.id}>
+                                        <td>{vehicleMake.id}</td>
+                                        <td>{vehicleMake.name}</td>
+                                        <td>{vehicleMake.abrv}</td>
+                                        <td><Button onClick={e => routerStore.goTo('editMake', { id: vehicleMake.id })}>Edit</Button></td>
+                                        <td><Button value={vehicleMake.id} onClick={deleteVehicleMake} >Delete</Button></td>
                                     </tr>
                                 );
                             })}
@@ -110,8 +106,8 @@ import Header from '../../Components/Header';
                     </Row>
                 </Container>
             </React.Fragment>
-        )
+        );
     }
 }
 
-export default VehicleModelList;
+export default VehicleMakeList;

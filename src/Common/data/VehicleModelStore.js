@@ -179,17 +179,6 @@ class VehicleModelStore {
 
         let modelData = this.vehicleModels.slice();
 
-        let lastTakenId = 0;
-
-        modelData.forEach((model) => {
-            if (model.id > lastTakenId) {
-                return lastTakenId = model.id;
-            }
-        });
-
-        let newId = lastTakenId + 1;
-
-
         if (searchString != null && searchString !== '') {
             modelData = modelData.filter(model =>
                 model.name.toLowerCase().indexOf(searchString.toLowerCase()) > -1);
@@ -202,7 +191,6 @@ class VehicleModelStore {
         modelData = _(modelData).drop((page - 1) * rpp).take(rpp).value();
 
         return {
-            newId: newId,
             searchString: searchString,
             page: page,
             rpp: rpp,
@@ -216,38 +204,31 @@ class VehicleModelStore {
     }
 
     @action.bound get(id) {
-        const s = this.vehicleModels.slice();
-        // eslint-disable-next-line
-        let vehicle = _.find(s, function (o) { return o.id == id });
-
-        return vehicle;
+        let model = _.find(this.vehicleModels, function (o) { return o.id === Number(id) });
+        return model;
     }
 
-    @action.bound add(newModel) {
-        // let maxID = 0;
-        // this.vehicleModels.map((vehicle) => {
-        //     if (vehicle.id > maxID) maxID = vehicle.id;
-        //     return maxID += 1;
-        // });
+    @action.bound add(model) {
 
-
-        const receivedObject = _.maxBy(this.vehicleModels, function (o) { return o.id; });
-
-        const returnedId = Number(receivedObject.id) + 1;
-
-        newModel.id = returnedId;
-        newModel.abrv = String(newModel.name.toLowerCase().trim().replace(/ /g, "-"));
-        this.vehicleModels.push(newModel);
+        const calculateNewModelId = _.maxBy(this.vehicleModels, (o) => { return o.id; });
+        const newModelId = Number(calculateNewModelId.id) + 1;
+        model.id = newModelId;
+        model.abrv = String(model.name.toLowerCase().trim().replace(/ /g, "-"));
+        this.vehicleModels.push(model);
 
     }
 
-    // @action update(model) {
-
-    // }
+    @action update(model) {
+        _.find(this.vehicleModels, (o) => {
+            if (o.id === model.id) {
+                o.name = model.name;
+                o.makeId = model.makeId;
+            }
+        });
+    }
 
     @action.bound delete(id) {
-        // eslint-disable-next-line
-        this.vehicleModels.splice(this.vehicleModels.findIndex((i) => { return i.id == id; }), 1);
+        this.vehicleModels.splice(this.vehicleModels.findIndex((i) => { return i.id === Number(id) }), 1);
     }
 
 

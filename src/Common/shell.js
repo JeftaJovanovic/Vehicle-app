@@ -6,13 +6,19 @@ import { NotFoundPage } from '../Common/NotFoundPage';
 import VehicleModelList from '../VehicleModel/Pages/VehicleModelList';
 import VehicleModelCreate from '../VehicleModel/Pages/VehicleModelCreate';
 import VehicleModelEdit from '../VehicleModel/Pages/VehicleModelEdit';
+import VehicleMakeList from '../VehicleMake/Pages/VehicleMakeList'
+import VehicleMakeCreate from '../VehicleMake/Pages/VehicleMakeCreate';
+import VehicleMakeEdit from '../VehicleMake/Pages/VehicleMakeEdit';
 
 const viewMap = {
-    vehicleModelList: <VehicleModelList />,
     home: <HomePage />,
     notFound: <NotFoundPage />,
-    createVehicle: <VehicleModelCreate />,
-    editVehicle: <VehicleModelEdit />
+    vehicleModelList: <VehicleModelList />,
+    createModel: <VehicleModelCreate />,
+    editModel: <VehicleModelEdit />,
+    vehicleMakeList: <VehicleMakeList />,
+    createMake: <VehicleMakeCreate />,
+    editMake: <VehicleMakeEdit />
 };
 
 export const Shell = inject('rootStore')(

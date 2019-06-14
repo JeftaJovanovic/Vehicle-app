@@ -11,7 +11,7 @@ class VehicleModelCreateViewStore {
                 return this.vehicleModelStore.add(form.values());
             },
             onError: (form) => {
-                console.log(form.errors());
+                alert(form.errors());
             }
         });
     }

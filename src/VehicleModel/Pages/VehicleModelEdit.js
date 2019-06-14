@@ -24,7 +24,7 @@ class VehicleModelEdit extends React.Component {
         if (!form) return null;
         return (
             <React.Fragment>
-                {<form>
+                <form>
                     <label htmlFor={form.$('name')}>
                         {form.$('name').label}
                     </label>
@@ -39,6 +39,7 @@ class VehicleModelEdit extends React.Component {
                             <option key={make.id} value={make.id}>{make.name}</option>
                         )}
                     </select>
+                    <p>{form.$('makeId').error}</p>
                     <br />
 
                     <button type="submit" onClick={form.onSubmit}>Submit</button>
@@ -47,7 +48,7 @@ class VehicleModelEdit extends React.Component {
                     <button type="button" onClick={this.handleClick}>Go to models</button>
 
                     <p>{form.error}</p>
-                </form>}
+                </form>
             </React.Fragment>
         );
     }

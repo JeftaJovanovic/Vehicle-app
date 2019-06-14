@@ -3,9 +3,6 @@ import dvr from 'mobx-react-form/lib/validators/DVR';
 import validatorjs from "validatorjs";
 
 class BaseForm extends Form {
-    constructor(fieldsConfiguration, formOptions) {
-        super(fieldsConfiguration, formOptions)
-    }
 
     plugins() {
         return { dvr: dvr(validatorjs) };

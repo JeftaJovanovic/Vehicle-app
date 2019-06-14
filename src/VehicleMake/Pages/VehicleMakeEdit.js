@@ -1,23 +1,26 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
+import VehicleMakeEditViewStore from '../Stores/VehicleMakeEditViewStore'
 
 @inject(i => ({
     rootStore: i.rootStore,
-    vehicleModelCreateViewStore: i.rootStore.vehicleModelModuleStore.vehicleModelCreateViewStore
+    vehicleMakeEditViewStore: new VehicleMakeEditViewStore(i.rootStore.vehicleMakeModuleStore)
 }))
 
 @observer
-class VehicleModelCreate extends React.Component {
+class VehicleMakeEdit extends React.Component {
 
-    handleClick = () => {
+    handleClick = (e) => {
         const { rootStore } = this.props;
-        rootStore.routerStore.goTo('vehicleModelList');
+        const value = e.target.value;
+        rootStore.routerStore.goTo(value);
     }
 
     render() {
 
-        const { form, makes } = this.props.vehicleModelCreateViewStore
+        const { form } = this.props.vehicleMakeEditViewStore;
 
+        if (!form) return null;
         return (
             <React.Fragment>
                 <form>
@@ -26,30 +29,18 @@ class VehicleModelCreate extends React.Component {
                     </label>
                     <input {...form.$('name').bind()} />
                     <p>{form.$('name').error}</p>
-
-                    <label htmlFor={form.$('makeId').id}>
-                        {form.$('makeId').label}
-                    </label>
-                    <select {...form.$('makeId').bind()}>
-                        {makes.map(make =>
-                            <option key={make.id} value={make.id}>{make.name}</option>
-                        )}
-                    </select>
-                    <p>{form.$('makeId').error}</p>
                     <br />
 
                     <button type="submit" onClick={form.onSubmit}>Submit</button>
                     <button type="button" onClick={form.onClear}>Clear</button>
                     <button type="button" onClick={form.onReset}>Reset</button>
-                    <button type="button" onClick={this.handleClick}>Go to Models</button>
+                    <button type="button" value={'vehicleMakeList'} onClick={this.handleClick}>Go to Makes</button>
 
                     <p>{form.error}</p>
                 </form>
-
             </React.Fragment>
         );
     }
-
 }
 
-export default VehicleModelCreate;
+export default VehicleMakeEdit;

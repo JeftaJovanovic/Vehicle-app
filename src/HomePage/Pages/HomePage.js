@@ -9,18 +9,21 @@ export const HomePage = inject('rootStore')(
                 <React.Fragment>
                     <Header />
                     <div>
-                        <h1>Home</h1>
-                        <button onClick={this.handleClick}>
+                        <button value={'vehicleModelList'} onClick={this.handleClick}>
                             Go to Vehicle Models List
-                    </button>
+                        </button>
+                        <button value={'vehicleMakeList'} onClick={this.handleClick}>
+                            Go to Vehicle Makes List
+                        </button>
                     </div>
                 </React.Fragment>
             );
         }
 
-        handleClick = () => {
+        handleClick = (e) => {
             const { rootStore } = this.props;
-            rootStore.routerStore.goTo('vehicleModelList');
+            const value = e.target.value;
+            rootStore.routerStore.goTo(value);
         };
     }
 );

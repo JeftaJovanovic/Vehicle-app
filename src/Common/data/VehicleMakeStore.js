@@ -1,4 +1,4 @@
-import { observable } from 'mobx';
+import { observable, action } from 'mobx';
 import _ from 'lodash';
 
 class VehicleMakeStore {
@@ -10,7 +10,7 @@ class VehicleMakeStore {
             "abrv": "a-u-d-i"
         },
         {
-            "Id": 2,
+            "id": 2,
             "name": "Bayerische Motoren Werke",
             "abrv": "b-m-w"
         },
@@ -56,7 +56,6 @@ class VehicleMakeStore {
 
         let makeData = this.vehicleMakes.slice();
 
-
         if (searchString != null && searchString !== '') {
             makeData = makeData.filter(make =>
                 make.name.toLowerCase().indexOf(searchString.toLowerCase()) > -1);
@@ -80,41 +79,27 @@ class VehicleMakeStore {
 
     }
 
-
-    // @computed get allModels() {
-
-    //     return this.vehicleModels.map((model) => {
-    //         let makeName = this.vehicleMakes.filter((make) =>
-    //             make.id === model.makeId
-    //         )
-    //             .map(
-    //                 // make => make.name
-    //                 function (make) {
-    //                     return make.name;
-    //                 }
-    //             )[0];
-    //         return {
-    //             ...model,
-    //             makeName
-    //         };
-    //     });
-    // }
-
-
-
-    // @action get(id) {
-
-    // }
-    // @action create(make) {
-
-    // }
-    // @action update(make) {
-
-    // }
-    // @action delete(id) {
-
-    // }
+    @action.bound get(id) {
+        let make = _.find(this.vehicleMakes, function (o) { return o.id === Number(id) })
+        return make;
+    }
+    @action.bound add(make) {
+        const calculateNewMakeId = _.maxBy(this.vehicleMakes, (o) => { return o.id });
+        const newMakeId = Number(calculateNewMakeId.id) + 1;
+        make.id = newMakeId;
+        make.abrv = String(make.name.toLowerCase().trim().replace(/ /g, '-'));
+        this.vehicleMakes.push(make);
+    }
+    @action.bound update(make) {
+        _.find(this.vehicleMakes, (o) => {
+            if (o.id === make.id) {
+                o.name = make.name
+            }
+        });
+    }
+    @action.bound delete(id) {
+        this.vehicleMakes.splice(this.vehicleMakes.findIndex((i) => { return i.id === Number(id); }), 1);
+    }
 }
-
 
 export default VehicleMakeStore;

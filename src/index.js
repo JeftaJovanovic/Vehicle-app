@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './Common/App';
-import * as serviceWorker from './Common/serviceWorker';
+import App from './common/App';
+import * as serviceWorker from './common/serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import { Provider } from 'mobx-react';
 
-import RootStore from './Common/RootStore';
+import RootStore from './common/RootStore';
 
 const rootStore = new RootStore();
 

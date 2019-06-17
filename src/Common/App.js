@@ -3,7 +3,7 @@ import RootStore from './RootStore';
 import { Provider } from 'mobx-react';
 import { HistoryAdapter } from 'mobx-state-router';
 import { history } from './history';
-import { Shell } from './shell';
+import { Shell } from './Shell';
 
 const rootStore = new RootStore();
 

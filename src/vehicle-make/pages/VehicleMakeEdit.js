@@ -1,6 +1,6 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import VehicleMakeEditViewStore from '../Stores/VehicleMakeEditViewStore'
+import VehicleMakeEditViewStore from '../stores/VehicleMakeEditViewStore'
 
 @inject(i => ({
     rootStore: i.rootStore,
@@ -10,17 +10,10 @@ import VehicleMakeEditViewStore from '../Stores/VehicleMakeEditViewStore'
 @observer
 class VehicleMakeEdit extends React.Component {
 
-    handleClick = (e) => {
-        const { rootStore } = this.props;
-        const value = e.target.value;
-        rootStore.routerStore.goTo(value);
-    }
-
     render() {
 
         const { form } = this.props.vehicleMakeEditViewStore;
 
-        if (!form) return null;
         return (
             <React.Fragment>
                 <form>
@@ -34,7 +27,7 @@ class VehicleMakeEdit extends React.Component {
                     <button type="submit" onClick={form.onSubmit}>Submit</button>
                     <button type="button" onClick={form.onClear}>Clear</button>
                     <button type="button" onClick={form.onReset}>Reset</button>
-                    <button type="button" value={'vehicleMakeList'} onClick={this.handleClick}>Go to Makes</button>
+                    <button type="button" onClick={e => this.props.rootStore.routerStore.goTo('vehicleMakeList')}>Go to Makes</button>
 
                     <p>{form.error}</p>
                 </form>

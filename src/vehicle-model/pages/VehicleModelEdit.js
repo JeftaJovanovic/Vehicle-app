@@ -1,23 +1,22 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
+import VehicleModelEditViewStore from '../stores/VehicleModelEditViewStore'
 
 @inject(i => ({
     rootStore: i.rootStore,
-    vehicleModelCreateViewStore: i.rootStore.vehicleModelModuleStore.vehicleModelCreateViewStore
+    vehicleModelEditViewStore: new VehicleModelEditViewStore(i.rootStore.vehicleModelModuleStore)
 }))
 
 @observer
-class VehicleModelCreate extends React.Component {
-
-    handleClick = () => {
-        const { rootStore } = this.props;
-        rootStore.routerStore.goTo('vehicleModelList');
-    }
+class VehicleModelEdit extends React.Component {
 
     render() {
-
-        const { form, makes } = this.props.vehicleModelCreateViewStore
-
+        // const { rootStore } = this.props;
+        // const { params } = rootStore.routerStore.routerState;
+        const { makes, form } = this.props.vehicleModelEditViewStore;
+        //const form = getForm(params.id);
+        //console.log(params.id);
+        if (!form) return null;
         return (
             <React.Fragment>
                 <form>
@@ -31,7 +30,7 @@ class VehicleModelCreate extends React.Component {
                         {form.$('makeId').label}
                     </label>
                     <select {...form.$('makeId').bind()}>
-                        {makes.map(make =>
+                        {makes.items.map(make =>
                             <option key={make.id} value={make.id}>{make.name}</option>
                         )}
                     </select>
@@ -41,15 +40,13 @@ class VehicleModelCreate extends React.Component {
                     <button type="submit" onClick={form.onSubmit}>Submit</button>
                     <button type="button" onClick={form.onClear}>Clear</button>
                     <button type="button" onClick={form.onReset}>Reset</button>
-                    <button type="button" onClick={this.handleClick}>Go to Models</button>
+                    <button type="button" onClick={e => this.props.rootStore.routerStore.goTo('vehicleModelList')}>Go to models</button>
 
                     <p>{form.error}</p>
                 </form>
-
             </React.Fragment>
         );
     }
-
 }
 
-export default VehicleModelCreate;
+export default VehicleModelEdit;

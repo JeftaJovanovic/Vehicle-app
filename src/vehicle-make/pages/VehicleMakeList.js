@@ -2,7 +2,7 @@ import React from 'react';
 import { Table, Form, Col, Row, Container, Button } from 'react-bootstrap';
 import { observer, inject } from 'mobx-react';
 import Pagination from 'react-js-pagination';
-import Header from '../../Components/Header';
+import Header from '../../components/Header';
 
 @inject(i => ({
     rootStore: i.rootStore,
@@ -10,19 +10,17 @@ import Header from '../../Components/Header';
 }))
 
 @observer class VehicleMakeList extends React.Component {
+
     render() {
 
         const { makeItems: makeData, setOrderDirection, setOrderBy, setSearchString, setPage, setRpp, deleteVehicleMake } = this.props.vehicleMakeListViewStore;
 
         const { searchString, orderBy, items, page, rpp, itemsCount, orderDirection } = makeData;
 
-        const { routerStore } = this.props.rootStore;
-
         return (
             <React.Fragment>
                 <Header />
                 <Container>
-                    <Button variant="primary" size="lg" value={'home'} onClick={this.handleClick}>Back</Button>
                     <Form>
                         <Row>
                             <Col lg={true}>
@@ -62,7 +60,7 @@ import Header from '../../Components/Header';
                             </Col>
                             <Col lg={true}>
                                 <Form.Label>Add Make</Form.Label> <br />
-                                <Button variant="primary" size="md" onClick={e => routerStore.goTo('createMake')}>
+                                <Button variant="primary" size="md" onClick={e => this.props.rootStore.routerStore.goTo('createMake')}>
                                     ADD
                                 </Button>
                             </Col>
@@ -85,7 +83,7 @@ import Header from '../../Components/Header';
                                         <td>{vehicleMake.id}</td>
                                         <td>{vehicleMake.name}</td>
                                         <td>{vehicleMake.abrv}</td>
-                                        <td><Button onClick={e => routerStore.goTo('editMake', { id: vehicleMake.id })}>Edit</Button></td>
+                                        <td><Button onClick={e => this.props.rootStore.routerStore.goTo('editMake', { id: vehicleMake.id })}>Edit</Button></td>
                                         <td><Button value={vehicleMake.id} onClick={deleteVehicleMake} >Delete</Button></td>
                                     </tr>
                                 );

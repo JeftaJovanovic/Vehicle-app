@@ -2,7 +2,7 @@ import React from 'react';
 import { Table, Form, Col, Row, Container, Button } from 'react-bootstrap';
 import { observer, inject } from 'mobx-react';
 import Pagination from 'react-js-pagination';
-import Header from '../../Components/Header';
+import Header from '../../components/Header';
 
 @inject(i => ({
     rootStore: i.rootStore,
@@ -17,13 +17,10 @@ import Header from '../../Components/Header';
 
         const { searchString, orderBy, items, page, rpp, itemsCount, orderDirection } = modelData;
 
-        const { routerStore } = this.props.rootStore;
-
         return (
             <React.Fragment>
                 <Header />
                 <Container>
-                    <Button variant="primary" size="lg" value={'home'} onClick={this.handleClick}>Back</Button>
                     <Form>
                         <Row>
                             <Col lg={true}>
@@ -64,7 +61,7 @@ import Header from '../../Components/Header';
                             </Col>
                             <Col lg={true}>
                                 <Form.Label>Add Model</Form.Label> <br />
-                                <Button variant="primary" size="md" onClick={e => routerStore.goTo('createModel')}>
+                                <Button variant="primary" size="md" onClick={e => this.props.rootStore.routerStore.goTo('createModel')}>
                                     ADD
                                 </Button>
                             </Col>
@@ -76,7 +73,7 @@ import Header from '../../Components/Header';
                                 <th>ID</th>
                                 <th>Model Name</th>
                                 <th>Make ID</th>
-                                <th>Abrv</th>
+                                <th>Abrv.</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
@@ -89,7 +86,7 @@ import Header from '../../Components/Header';
                                         <td>{vehicleModel.name}</td>
                                         <td>{vehicleModel.makeId}</td>
                                         <td>{vehicleModel.abrv}</td>
-                                        <td><Button onClick={e => routerStore.goTo('editModel', { id: vehicleModel.id })}>Edit</Button></td>
+                                        <td><Button onClick={e => this.props.rootStore.routerStore.goTo('editModel', { id: vehicleModel.id })}>Edit</Button></td>
                                         <td><Button value={vehicleModel.id} onClick={deleteVehicleModel} >Delete</Button></td>
                                     </tr>
                                 );

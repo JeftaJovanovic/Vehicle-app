@@ -1,4 +1,4 @@
-import VehicleModelForm from '../Forms/VehicleModelForm';
+import VehicleModelForm from '../forms/VehicleModelForm';
 import { observable, computed } from 'mobx';
 
 class VehicleModelCreateViewStore {

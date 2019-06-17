@@ -1,4 +1,4 @@
-import VehicleMakeStore from '../../Common/data/VehicleMakeStore';
+import VehicleMakeStore from '../../common/data/VehicleMakeStore';
 import VehicleMakeListViewStore from './VehicleMakeListViewStore';
 import VehicleMakeCreateViewStore from './VehicleMakeCreateViewStore';
 

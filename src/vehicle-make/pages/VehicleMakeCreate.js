@@ -9,12 +9,6 @@ import { inject, observer } from 'mobx-react';
 @observer
 class VehicleMakeCreate extends React.Component {
 
-    handleClick = (e) => {
-        const { rootStore } = this.props;
-        const value = e.target.value;
-        rootStore.routerStore.goTo(value);
-    }
-
     render() {
 
         const { form } = this.props.vehicleMakeCreateViewStore;
@@ -31,7 +25,7 @@ class VehicleMakeCreate extends React.Component {
                     <button type="submit" onClick={form.onSubmit}>Submit</button>
                     <button type="button" onClick={form.onClear}>Clear</button>
                     <button type="button" onClick={form.onReset}>Reset</button>
-                    <button type="button" value={'vehicleMakeList'} onClick={this.handleClick}>Go to Makes</button>
+                    <button type="button" onClick={e => this.props.rootStore.routerStore.goTo('vehicleMakeList')}>Go to Makes</button>
 
                     <p>{form.error}</p>
                 </form>

@@ -26,7 +26,7 @@ class VehicleModelCreate extends React.Component {
                         {form.$('makeId').label}
                     </label>
                     <select {...form.$('makeId').bind()}>
-                        {makes.map(make =>
+                        {makes.items.map(make =>
                             <option key={make.id} value={make.id}>{make.name}</option>
                         )}
                     </select>

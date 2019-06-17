@@ -1,5 +1,5 @@
 import VehicleModelListViewStore from './VehicleModelListViewStore';
-import VehicleModelStore from '../../common/data/VehicleModelStore';
+import VehicleModelStore from './VehicleModelStore';
 import VehicleModelCreateViewStore from './VehicleModelCreateViewStore';
 
 

@@ -20,8 +20,6 @@ class VehicleModelCreateViewStore {
         return this.vehicleMakeStore.find('', 1, 100, 'name', 'asc');
     }
 
-    @observable makes = this.vehicleMakeStore.vehicleMakes;
-
 }
 
 export default VehicleModelCreateViewStore;

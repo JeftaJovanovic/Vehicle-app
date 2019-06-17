@@ -1,6 +1,6 @@
-import { observable, action } from 'mobx';
+import { action } from 'mobx';
 import _ from 'lodash';
-import BaseDataStore from './BaseDataStore';
+import BaseDataStore from '../../common/data/BaseDataStore';
 
 const data = [
     {
